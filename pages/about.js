@@ -1,4 +1,10 @@
+import NavBar from "./NavBar";
+
 export default function About() {
-  console.log("About");
-  return "about us";
+  return (
+    <div>
+      <NavBar></NavBar>
+      <h1>about</h1>
+    </div>
+  );
 }
