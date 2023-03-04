@@ -6,7 +6,7 @@ export default function About() {
       <Head>
         <title>About | Next Movies</title>
       </Head>
-      <h1>about</h1>
+      <h1>About</h1>
     </div>
   );
 }
