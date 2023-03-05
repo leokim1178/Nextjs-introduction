@@ -1,11 +1,9 @@
-import Head from "next/head";
+import Leo from "../components/leo";
 
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>Home | Next Movies</title>
-      </Head>
+      <Leo title="Home" />
 
       <h1 className="active">Hello</h1>
     </div>

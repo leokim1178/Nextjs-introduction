@@ -1,11 +1,9 @@
-import Head from "next/head";
+import Leo from "../components/leo";
 
 export default function About() {
   return (
     <div>
-      <Head>
-        <title>About | Next Movies</title>
-      </Head>
+      <Leo title="About"></Leo>
       <h1>About</h1>
     </div>
   );
