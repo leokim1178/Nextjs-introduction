@@ -4,37 +4,21 @@ import PageHead from "../components/PageHead";
 
 export default function Home({ results }) {
   const router = useRouter();
-  const onClick = (id, title) => {
+  const onClick = (movie) => {
     router.push(
-      {
-        pathname: `/movies/${id}`,
-        query: {
-          title,
-        },
-      },
-      `/movies/${id}` // as로 쿼리를 숨길수 있다
+      `/movies/${movie.original_title}/${movie.id}` // as로 쿼리를 숨길수 있다
     );
   };
   return (
     <div className="container">
       <PageHead title="Home" />
       {results?.map((movie) => (
-        <div
-          onClick={() => onClick(movie.id, movie.original_title)}
-          className="movie"
-          key={movie.id}
-        >
+        <div onClick={() => onClick(movie)} className="movie" key={movie.id}>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
           <h4>
             <Link
               legacyBehavior
-              href={{
-                pathname: `/movies/${movie.id}`,
-                query: {
-                  title: movie.original_title,
-                },
-              }}
-              as={`/movies/${movie.id}`}
+              href={`/movies/${movie.original_title}/${movie.id}`}
             >
               <a>{movie.original_title}</a>
             </Link>
