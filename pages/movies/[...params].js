@@ -3,7 +3,7 @@ import PageHead from "../../components/PageHead";
 
 export default function Detail({ params }) {
   const router = useRouter();
-  console.log(router.query.id);
+
   const [title, id] = params || [];
 
   return (
