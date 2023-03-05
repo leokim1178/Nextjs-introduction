@@ -1,22 +1,10 @@
-import { useEffect, useState } from "react";
-import Leo from "../components/leo";
+import PageHead from "../components/PageHead";
 
-export default function Home() {
-  const [movies, setMovies] = useState();
-
-  useEffect(() => {
-    (async () => {
-      const res = await fetch(`/api/movies`);
-      const { results } = await res.json();
-      setMovies(results);
-    })();
-  }, []);
-
+export default function Home({ results }) {
   return (
     <div className="container">
-      <Leo title="Home" />
-      {!movies && <h4>Loading...</h4>}
-      {movies?.map((movie) => (
+      <PageHead title="Home" />
+      {results?.map((movie) => (
         <div className="movie" key={movie.id}>
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
           <h4>{movie.original_title}</h4>
@@ -45,4 +33,16 @@ export default function Home() {
       `}</style>
     </div>
   );
+}
+
+// 함수 이름 unchangeable
+export async function getServerSideProps() {
+  const { results } = await (
+    await fetch(`http://localhost:3000/api/movies`)
+  ).json();
+  return {
+    props: {
+      results,
+    },
+  };
 }

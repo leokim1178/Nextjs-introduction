@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default function Leo({ title }) {
+export default function PageHead({ title }) {
   const pageTitle = `${title} | Next Movies`;
   return (
     <Head>

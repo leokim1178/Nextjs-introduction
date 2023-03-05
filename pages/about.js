@@ -1,9 +1,9 @@
-import Leo from "../components/leo";
+import PageHead from "../components/PageHead";
 
 export default function About() {
   return (
     <div>
-      <Leo title="About"></Leo>
+      <PageHead title="About"></PageHead>
       <h1>About</h1>
     </div>
   );
